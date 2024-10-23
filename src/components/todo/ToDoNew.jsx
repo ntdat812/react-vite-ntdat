@@ -1,5 +1,7 @@
 
-const TodoNew = () => {
+const TodoNew = (props) => {
+    const { addNewTodo } = props;
+    addNewTodo("dat");
     return (
         <div className="addContainer">
             <input type="text" className="input-highlight" placeholder="Nhập nội dung" />
