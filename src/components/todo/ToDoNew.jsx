@@ -31,9 +31,6 @@ const TodoNew = (props) => {
                 className="button-add"
                 onClick={handleClick}
             >Add</button>
-            <div>
-                My text input is = {valueInput}
-            </div>
         </div>
     )
 }
