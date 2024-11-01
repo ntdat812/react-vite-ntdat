@@ -11,7 +11,8 @@ const TodoNew = (props) => {
     //  addNewTodo("dat");
 
     const handleClick = () => {
-        addNewTodo(valueInput)
+        addNewTodo(valueInput);
+        setValueInput("");
     }
 
     const handleOnChange = (name) => {
@@ -24,6 +25,7 @@ const TodoNew = (props) => {
                 className="input-highlight"
                 placeholder="Nhập nội dung"
                 onChange={(event) => { handleOnChange(event.target.value) }}
+                value={valueInput}
             />
             <button
                 className="button-add"
