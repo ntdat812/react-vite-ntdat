@@ -1,14 +1,21 @@
+import { useState } from "react";
 
 const TodoNew = (props) => {
+
+    //useState hook
+    //const valueInput = "dat";
+    const [valueInput, setValueInput] = useState("eric")
+
+
     const { addNewTodo } = props;
     //  addNewTodo("dat");
 
     const handleClick = () => {
-        alert("click me")
+        console.log("check valueInput:", valueInput)
     }
 
-    const handleOnChange = (event) => {
-        console.log(">>Handle on change", event.target.value)
+    const handleOnChange = (name) => {
+        setValueInput(name)
     }
     return (
         <div className="addContainer">
@@ -16,12 +23,15 @@ const TodoNew = (props) => {
                 type="text"
                 className="input-highlight"
                 placeholder="Nhập nội dung"
-                onChange={handleOnChange}
+                onChange={(event) => { handleOnChange(event.target.value) }}
             />
             <button
                 className="button-add"
                 onClick={handleClick}
             >Add</button>
+            <div>
+                My text input is = {valueInput}
+            </div>
         </div>
     )
 }
