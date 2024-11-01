@@ -80,6 +80,10 @@
     background-color: #2563eb;
 }
 
+.button-del:hover {
+    background-color: #83030e;
+}
+
 /* Danh sách công việc */
 .listContainer {
     background-color: white;

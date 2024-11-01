@@ -15,9 +15,13 @@ const App = () => {
       id: ramdomIntFromInterval(1, 1000000),
       name: name
     }
-
     //copy du lieu cu va them du lieu moi vao cuoi
     setTodoList([...todoList, newTodo])
+  }
+
+  const delTodo = (id) => {
+    const newTodo = todoList.filter(item => item.id !== id);
+    setTodoList(newTodo)
   }
 
   const ramdomIntFromInterval = (min, max) => {
@@ -35,6 +39,7 @@ const App = () => {
 
         {todoList.length > 0 ?
           <TodoData
+            delTodo={delTodo}
             todoList={todoList}
           />
           :
