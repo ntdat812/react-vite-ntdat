@@ -19,7 +19,17 @@ const App = () => {
   }
 
   const addNewTodo = (name) => {
-    alert(`call me ${name}`)
+    const newTodo = {
+      id: ramdomIntFromInterval(1, 1000000),
+      name: name
+    }
+
+    //copy du lieu cu va them du lieu moi vao cuoi
+    setTodoList([...todoList, newTodo])
+  }
+
+  const ramdomIntFromInterval = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
   return (
