@@ -5,7 +5,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import LoginPage from './pages/login.jsx';
+import RegisterPage from './pages/register.jsx';
+import UserPage from './pages/user.jsx';
+import ProductPage from './pages/product.jsx';
+import './styles/global.css'
 
+//khai bao routes
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,19 +19,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <div>LoginPage</div>,
+    element: <LoginPage />,
   },
   {
     path: "/register",
-    element: <div>RegisterPage</div>,
+    element: <RegisterPage />,
   },
   {
     path: "/users",
-    element: <div>UserPage</div>,
+    element: <UserPage />,
   },
   {
     path: "/products",
-    element: <div>ProductPage</div>,
+    element: <ProductPage />,
   },
 ]);
 
