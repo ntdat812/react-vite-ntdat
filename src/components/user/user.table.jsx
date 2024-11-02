@@ -4,10 +4,7 @@ import { fetchAllUserAPI } from '../../services/apiService';
 import { useEffect, useState } from 'react';
 
 const UserTable = () => {
-    const [dataUser, serDataUser] = useState([
-        { _id: "1", fullName: 21, email: "thanhhoa" },
-        { _id: "2", fullName: 21, email: "thanhhoa" }
-    ]);
+    const [dataUser, serDataUser] = useState([]);
 
     //truyen vao array rong chi chay 1 lan
     useEffect(() => {
