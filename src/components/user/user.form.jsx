@@ -24,7 +24,6 @@ const UserForm = () => {
         }
     }
 
-    console.log("check fullname: ", fullName)
     return (
         <div className="user-form" style={{ margin: "20px 0" }}>
             <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
