@@ -1,7 +1,7 @@
 // ErrorPage.jsx
 import React from "react";
 import { useRouteError, useNavigate } from "react-router-dom";
-import "./error.css";
+import { Button, Result } from "antd";
 
 export default function ErrorPage() {
     const error = useRouteError();
@@ -12,15 +12,11 @@ export default function ErrorPage() {
     };
 
     return (
-        <div id="error-page">
-            <h1>Oops!</h1>
-            <p>Sorry, an unexpected error has occurred.</p>
-            <p>
-                <i>{error?.statusText || error?.message}</i>
-            </p>
-            <button onClick={goToHome} className="back-home-button">
-                Back to Home
-            </button>
-        </div>
+        <Result
+            status="403"
+            title="403"
+            subTitle={error?.statusText || error?.message}
+            extra={<Button type="primary" onClick={goToHome}>Back Home</Button>}
+        />
     );
 }
