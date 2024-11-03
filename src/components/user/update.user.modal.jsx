@@ -1,26 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Input, Modal, notification } from "antd";
-import { createUserAPI } from "../../services/apiService";
+import { updateUserAPI } from "../../services/apiService";
 
-const UpdateUserModal = () => {
-    //const { loadUser } = props;
+const UpdateUserModal = (props) => {
+    const [id, setId] = useState("");
     const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassWord] = useState("");
     const [phone, setPhoneNumber] = useState("");
 
-    const [isModalOpen, setIsModelOpen] = useState(true)
+    const { isModalUpdateOpen, setIsModalUpdateOpen, dataUpdate, setDataUpdate, loadUser } = props;
+
+    useEffect(() => {
+        console.log("check data update: ", dataUpdate)
+        if (dataUpdate) {
+            setId(dataUpdate._id);
+            setFullName(dataUpdate.fullName);
+            setPhoneNumber(dataUpdate.phone);
+        }
+    }, [dataUpdate]);
 
     const handelSubmitBtn = async () => {
-        const res = await createUserAPI(fullName, email, password, phone);
+        const res = await updateUserAPI(id, fullName, phone);
         if (res.data) {
 
             notification.success({
-                message: "Create user",
-                description: "Tạo mới user thành công!"
+                message: "Update user",
+                description: "Cập nhật user thành công!"
             });
             resetAndCloseModal();
-            //await loadUser();
+            await loadUser();
         } else {
             notification.error({
                 message: "Error create user",
@@ -30,42 +37,36 @@ const UpdateUserModal = () => {
     }
 
     const resetAndCloseModal = () => {
+        setId("");
         setFullName("");
-        setEmail("");
-        setPassWord("");
         setPhoneNumber("");
-        setIsModelOpen(false);
+        setIsModalUpdateOpen(false);
+        setDataUpdate("")
     }
+
 
     return (
         <Modal
             title="Update user"
-            open={isModalOpen}
+            open={isModalUpdateOpen}
             onOk={() => handelSubmitBtn()}
-            onCancel={() => setIsModelOpen(false)}
+            onCancel={() => setIsModalUpdateOpen(false)}
             maskClosable={false} //click ra ngoai cung khong dong modal
             okText="SAVE"
         >
             <div style={{ display: "flex", gap: "15px", flexDirection: "column" }}>
                 <div>
+                    <span>Id: </span>
+                    <Input
+                        value={id}
+                        disabled={true}
+                    />
+                </div>
+                <div>
                     <span>Full name: </span>
                     <Input
                         value={fullName}
                         onChange={(event) => { setFullName(event.target.value) }}
-                    />
-                </div>
-                <div>
-                    <span>Email: </span>
-                    <Input
-                        value={email}
-                        onChange={(event) => { setEmail(event.target.value) }}
-                    />
-                </div>
-                <div>
-                    <span>Pass Word: </span>
-                    <Input.Password
-                        value={password}
-                        onChange={(event) => { setPassWord(event.target.value) }}
                     />
                 </div>
                 <div>

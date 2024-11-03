@@ -10,7 +10,7 @@ const UserForm = (props) => {
     const [password, setPassWord] = useState("");
     const [phone, setPhoneNumber] = useState("");
 
-    const [isModalOpen, setIsModelOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const handelSubmitBtn = async () => {
         const res = await createUserAPI(fullName, email, password, phone);
@@ -35,7 +35,7 @@ const UserForm = (props) => {
         setEmail("");
         setPassWord("");
         setPhoneNumber("");
-        setIsModelOpen(false);
+        setIsModalOpen(false);
     }
 
     return (
@@ -46,14 +46,14 @@ const UserForm = (props) => {
                 <h3>Table user</h3>
                 <Button
                     type="primary"
-                    onClick={() => setIsModelOpen(true)}
+                    onClick={() => setIsModalOpen(true)}
                 >Create user</Button >
             </div>
             <Modal
                 title="Create user"
                 open={isModalOpen}
                 onOk={() => handelSubmitBtn()}
-                onCancel={() => setIsModelOpen(false)}
+                onCancel={() => setIsModalOpen(false)}
                 maskClosable={false} //click ra ngoai cung khong dong modal
                 okText="CREATE"
             >
