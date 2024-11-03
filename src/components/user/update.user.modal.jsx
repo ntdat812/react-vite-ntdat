@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Input, Modal, notification } from "antd";
+import { Input, Modal, notification } from "antd";
 import { updateUserAPI } from "../../services/apiService";
 
 const UpdateUserModal = (props) => {

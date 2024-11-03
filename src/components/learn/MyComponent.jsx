@@ -16,7 +16,7 @@ const MyComponent = () => {
     // };
     return (
         <>
-            <div cal>
+            <div>
                 {JSON.stringify(ntdat)}
                 Nguyen Thanh Dat 08/12/2003
             </div>
