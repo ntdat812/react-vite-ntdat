@@ -3,7 +3,8 @@ import { useState } from "react";
 import { createUserAPI } from "../../services/apiService";
 
 
-const UserForm = () => {
+const UserForm = (props) => {
+    const { loadUser } = props;
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassWord] = useState("");
@@ -19,13 +20,22 @@ const UserForm = () => {
                 message: "Create user",
                 description: "Tạo mới user thành công!"
             });
-            setIsModelOpen(false);
+            resetAndCloseModal();
+            await loadUser();
         } else {
             notification.error({
                 message: "Error create user",
                 description: JSON.stringify(res.message)
             })
         }
+    }
+
+    const resetAndCloseModal = () => {
+        setFullName("");
+        setEmail("");
+        setPassWord("");
+        setPhoneNumber("");
+        setIsModelOpen(false);
     }
 
     return (
