@@ -18,7 +18,7 @@ const LoginPage = () => {
         if (res.data) {
             message.success("Đăng nhập thành công!")
             localStorage.setItem("access_token", res.data.access_token)
-            setUser(res.data.user)
+            setUser(res.data.user);
             navigate("/")
         } else {
             notification.error({
