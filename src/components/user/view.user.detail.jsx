@@ -5,7 +5,7 @@ import { handleUploadFile, updateUserAvatarAPI } from "../../services/apiService
 
 const ViewUserDetail = (props) => {
     const { setDataDetail, dataDetail, setIsDetailOpen, isDetailOpen, loadUser } = props
-    console.log("Check data detail: ", dataDetail)
+
 
     const [selectedFile, setSelectedFile] = useState(null)
     const [preview, setPreview] = useState(null)
@@ -25,7 +25,7 @@ const ViewUserDetail = (props) => {
 
     }
     const handleUpdateUserAvatar = async () => {
-        console.log(">>check selected file: ", selectedFile)
+
         const resUpload = await handleUploadFile(selectedFile, "avatar")
         if (resUpload.data) {
             //step 2: update user

@@ -12,7 +12,6 @@ const UserPage = () => {
     //truyen vao array trong chi chay 1 lan
     // không trống thì so sánh giá trị cũ và mới
     useEffect(() => {
-        console.log("run useEffect 1")
         loadUser()
     }, [current, pageSize])//[] + condition
 
