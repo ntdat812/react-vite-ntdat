@@ -51,9 +51,6 @@ const Header = () => {
             ],
 
         },])
-
-
-
     ];
     return (<Menu
         onClick={onClick}
